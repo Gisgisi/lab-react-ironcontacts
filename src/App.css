@@ -6,6 +6,12 @@
   height: 40vmin;
   pointer-events: none;
 }
+.tablehead{
+  margin-left: 230px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 .starimg {
 width: 200px;
 margin-left: 150px;
