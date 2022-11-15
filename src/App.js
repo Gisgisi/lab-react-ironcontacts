@@ -18,12 +18,30 @@ function App() {
     let randomContactIndex = getRandomInt(5, ContactsJSON.length - 1);
     let randomContact = ContactsJSON[randomContactIndex];
     
-    setContacts([...contacts, randomContact]);
+    setContacts([randomContact,...contacts]);
     ContactsJSON.splice(randomContactIndex, 1);
   }
+
+  let sortByName = function() {
+    const contactList = [...contacts];
+    contactList.sort((a, b) => a.name.localeCompare(b.name));
+    setContacts(contactList);
+  };
+
+  let sortByPopularity = function() {
+    const contactList = [...contacts];
+    contactList.sort(function(a, b) {
+      return parseFloat(b.popularity) - parseFloat(a.popularity);
+  });
+    setContacts(contactList);
+  };
+
   return (
     <div className="App">
       <h1>IronContacts</h1>
+      <button onClick={randomStar}>Add Random</button>
+      <button onClick={sortByPopularity}>Sort by popularity</button>
+      <button onClick={sortByName}>Sort by name</button>
       <table>
         <thead>
           <tr className='tablehead'>
@@ -46,7 +64,6 @@ function App() {
             )}
         </tbody>
       </table>
-      <button onClick={randomStar}>Add Random</button>
     </div>
   );
 }
