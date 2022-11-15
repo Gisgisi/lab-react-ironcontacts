@@ -6,6 +6,10 @@
   height: 40vmin;
   pointer-events: none;
 }
+.starimg {
+width: 200px;
+margin-left: 150px;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
